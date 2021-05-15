@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 // Register  for pipe line
+// updates the data when wr and sel is 1
 module register(clk, reset, wr, sel, wdata, rdata);
 
 input clk, reset, wr, sel;
@@ -19,8 +20,8 @@ always@(posedge clk) begin
 	else begin
 	if (sel & wr)
 		register <= wdata;
-	else
-		register <= register;
+	//else
+	//	register <= register;
 	end //if end
 end //always
 
